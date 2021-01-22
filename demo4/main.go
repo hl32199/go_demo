@@ -32,7 +32,7 @@ func DistributeCompute(params []int) []int {
 	wg.Wait()      //这里使用 wg 是否是必须的，不用会怎样？
 	close(resChan) //如果没有这行会怎么样
 
-	result := make([]int, paramsCount, paramsCount)
+	result := make([]int, paramsCount, paramsCount) //注意这里长度要赋值
 	for res := range resChan {
 		result[res.idx] = res.res
 	}
